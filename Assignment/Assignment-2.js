@@ -16,3 +16,28 @@ function showStudents() {
         console.log("File does not exist");
     }
 }
+
+// Update student
+function updateStudent(oldName, newName) {
+    let data = fs.readFileSync(file, "utf8");
+    data = data.replace(oldName, newName);
+    fs.writeFileSync(file, data);
+    console.log("Student updated");
+}
+// Delete student
+function deleteStudent(name) {
+    let data = fs.readFileSync(file, "utf8");
+    let students = data.split("\n");
+    students = students.filter(student => student !== name);
+    fs.writeFileSync(file, students.join("\n"));
+    console.log("Student deleted");
+}
+// Test the functions
+addStudent("Rahul");
+addStudent("Aman");
+addStudent("Priya");
+showStudents();
+updateStudent("Aman", "Rohit");
+showStudents();
+deleteStudent("Rahul");
+showStudents();
