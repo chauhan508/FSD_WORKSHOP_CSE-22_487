@@ -33,3 +33,28 @@ async function updateFile(content) {
         console.error("Error updating file:", err);
     }
 }
+
+async function deleteFile() {
+    try {
+        await fs.unlink(filePath);
+        console.log("File deleted successfully!");
+    } catch (err) {
+        if (err.code === "ENOENT") {
+            console.log("File does not exist.");
+        } else {
+            console.error("Error deleting file:", err);
+        }
+    }
+}
+
+async function runDemo() {
+    await createFile("Hello World! This is the first line.");
+    await readFile();
+
+    await updateFile("This line was appended later.");
+    await readFile();
+
+    await deleteFile();
+}
+
+runDemo();
