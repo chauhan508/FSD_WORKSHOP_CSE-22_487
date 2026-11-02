@@ -1,0 +1,13 @@
+﻿import { EventEmitter } from "events";
+const event = new EventEmitter();
+
+// Custom EventEmitter
+event.on("greet", (name) => {
+    console.log("Hello " + name);
+});
+event.on("exit", () => {
+    console.log("Exit event triggered");
+});
+
+event.emit("greet", "Dushyant");
+event.emit("exit");
