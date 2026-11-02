@@ -23,6 +23,18 @@ app.post("/student", (req, res) => {
     res.send("Student added successfully");
 });
 
+// PUT - Update
+app.put("/student", (req, res) => {
+    student = { ...student, ...req.body };
+    res.send("Student updated successfully");
+});
+
+// DELETE - Delete
+app.delete("/student", (req, res) => {
+    student = null;
+    res.send("Student deleted successfully");
+});
+
 app.listen(4000, () => {
     console.log("Server running at http://localhost:4000");
 });
