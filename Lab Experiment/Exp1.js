@@ -11,3 +11,9 @@ event.on("exit", () => {
 
 event.emit("greet", "Dushyant");
 event.emit("exit");
+
+// DOM-like event handling
+event.on("buttonClick", () => {
+    console.log("Button was clicked!");
+});
+event.emit("buttonClick");
